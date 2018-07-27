@@ -1,7 +1,7 @@
 extends ../layout
 
 block header_meta
-	- var content_title= 'НАГРАДЫ'
+	- var content_title= 'КОМАНДА'
 
 block header_include
 	- var include_css = ['add.css']
@@ -11,6 +11,13 @@ block sub_menu
 	a.sub_item.back_link(href='/admin') Назад
 	span.sub_item.toggle_rm Удалить
 	.sub_right_block
+
+		.sub_drop.type(style='z-index: 2;')
+			.drop_title Тип
+			.drop_inner
+				.drop_item(class='all').select Все
+				.drop_item(class='master') Партнеры
+				.drop_item(class='slave') Коллабораторы
 
 		.sub_drop.status(style='z-index: 1;')
 			.drop_title Статус
@@ -24,8 +31,8 @@ block sub_menu
 block content
 	.title= content_title
 	br
-	a.add(href='/admin/awards/add') + Добавить награду
+	a.add(href='/admin/peoples/add') + Добавить человека
 	br
 	br
 	.lists_block
-		include _awards.pug
+		include _peoples.pug

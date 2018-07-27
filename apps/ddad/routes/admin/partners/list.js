@@ -3,17 +3,17 @@ var pug = require('pug');
 module.exports = function(Model) {
 	var module = {};
 
-	var Category = Model.Category;
+	var Partner = Model.Partner;
 
 
 	module.index = function(req, res, next) {
-		Category.find().sort('-date').limit(10).exec(function(err, categorys) {
+		Partner.find().sort('-date').limit(10).exec(function(err, partners) {
 			if (err) return next(err);
 
-			Category.count().exec(function(err, count) {
+			Partner.count().exec(function(err, count) {
 				if (err) return next(err);
 
-				res.render('admin/categorys', {categorys: categorys, count: Math.ceil(count / 10)});
+				res.render('admin/partners', {partners: partners, count: Math.ceil(count / 10)});
 			});
 		});
 	};
@@ -23,12 +23,8 @@ module.exports = function(Model) {
 		var post = req.body;
 
 		var Query = (post.context.text && post.context.text !== '')
-			? Category.find({ $text : { $search : post.context.text } } )
-			: Category.find();
-
-		if (post.context.type && post.context.type != 'all') {
-			Query.where('type').equals(post.context.type);
-		}
+			? Partner.find({ $text : { $search : post.context.text } } )
+			: Partner.find();
 
 		if (post.context.status && post.context.status != 'all') {
 			Query.where('status').equals(post.context.status);
@@ -37,19 +33,19 @@ module.exports = function(Model) {
 		Query.count(function(err, count) {
 			if (err) return next(err);
 
-			Query.find().sort('-date').skip(+post.context.skip).limit(+post.context.limit).exec(function(err, categorys) {
+			Query.find().sort('-date').skip(+post.context.skip).limit(+post.context.limit).exec(function(err, partners) {
 				if (err) return next(err);
 
-				if (categorys.length > 0) {
+				if (partners.length > 0) {
 					var opts = {
-						categorys: categorys,
+						partners: partners,
 						load_list: true,
 						count: Math.ceil(count / 10),
 						skip: +post.context.skip,
 						compileDebug: false, debug: false, cache: true, pretty: false
 					};
 
-					res.send(pug.renderFile(__app_root + '/views/admin/categorys/_categorys.pug', opts));
+					res.send(pug.renderFile(__app_root + '/views/admin/partners/_partners.pug', opts));
 				} else {
 					res.send('end');
 				}

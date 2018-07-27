@@ -3,10 +3,11 @@ var express = require('express');
 var Model = require(__glob_root + '/models/main.js');
 
 var Params = {
-	locale: require('../_params/locale')
+	locale: require('../_params/locale'),
+	upload: require('../_params/upload')
 };
 
-var events = {
+var partnerSchema = {
 	list: require('./list.js')(Model),
 	add: require('./add.js')(Model, Params),
 	edit: require('./edit.js')(Model, Params),
@@ -17,19 +18,19 @@ module.exports = (function() {
 	var router = express.Router();
 
 	router.route('/')
-		.get(events.list.index)
-		.post(events.list.get_list);
+		.get(partnerSchema.list.index)
+		.post(partnerSchema.list.get_list);
 
 	router.route('/add')
-		.get(events.add.index)
-		.post(events.add.form);
+		.get(partnerSchema.add.index)
+		.post(partnerSchema.add.form);
 
-	router.route('/edit/:event_id')
-		.get(events.edit.index)
-		.post(events.edit.form);
+	router.route('/edit/:people_id')
+		.get(partnerSchema.edit.index)
+		.post(partnerSchema.edit.form);
 
 	router.route('/remove')
-		.post(events.remove.index);
+		.post(partnerSchema.remove.index);
 
 	return router;
 })();

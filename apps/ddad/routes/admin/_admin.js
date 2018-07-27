@@ -7,10 +7,8 @@ var admin = {
 	main: require('./main.js'),
 	works: require('./works/_works.js'),
 	publications: require('./publications/_publications.js'),
-	awards: require('./awards/_awards.js'),
-	events: require('./events/_events.js'),
 	peoples: require('./peoples/_peoples.js'),
-	categorys: require('./categorys/_categorys.js'),
+	partners: require('./partners/_partners.js'),
 	cv: require('./cv.js'),
 	users: require('./users/_users.js'),
 	options: require('./options.js')
@@ -31,12 +29,10 @@ module.exports = (function() {
 		.get(checkAuth, admin.cv.edit)
 		.post(checkAuth, admin.cv.edit_form);
 
-	router.use('/works', checkAuth, upload.fields([ { name: 'attach' }, { name: 'poster' }, { name: 'poster_column' } ]), admin.works);
+	router.use('/works', checkAuth, upload.fields([ { name: 'poster' } ]), admin.works);
 	router.use('/publications', checkAuth, upload.fields([ { name: 'poster' }, { name: 'attach' } ]), admin.publications);
-	router.use('/awards', checkAuth, admin.awards);
-	router.use('/events', checkAuth, admin.events);
 	router.use('/peoples', checkAuth, upload.fields([ { name: 'attach_cv' }, { name: 'photo' } ]), admin.peoples);
-	router.use('/categorys', checkAuth, admin.categorys);
+	router.use('/partners', checkAuth, upload.fields([ { name: 'logo' } ]), admin.peoples);
 	router.use('/users', checkAuth, admin.users);
 
 	router.post('/preview', checkAuth, upload.single('image'), admin.options.preview);

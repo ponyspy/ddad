@@ -6,7 +6,8 @@ module.exports = function(Model, Params) {
 	var module = {};
 
 	var Work = Model.Work;
-	var Category = Model.Category;
+	var People = Model.People;
+	var Partner = Model.Partner;
 
 	var uploadImages = Params.upload.images;
 	var uploadImage = Params.upload.image;
@@ -16,10 +17,14 @@ module.exports = function(Model, Params) {
 
 
 	module.index = function(req, res, next) {
-		Category.find().exec(function(err, categorys) {
+		People.find().exec(function(err, peoples) {
 			if (err) return next(err);
 
-			res.render('admin/works/add.pug', { categorys: categorys });
+			Partner.find().exec(function(err, partners) {
+				if (err) return next(err);
+
+				res.render('admin/works/add.pug', { partners: partners, peoples: peoples });
+			});
 		});
 	};
 
@@ -33,9 +38,9 @@ module.exports = function(Model, Params) {
 		work._short_id = shortid.generate();
 		work.status = post.status;
 		work.date = moment(post.date.date + 'T' + post.date.time.hours + ':' + post.date.time.minutes);
-		work.categorys = post.categorys.filter(function(category) { return category != 'none'; });
+		work.partners = post.partners.filter(function(partner) { return partner != 'none'; });
+		work.peoples = post.peoples.filter(function(people) { return people != 'none'; });
 		work.year = post.year;
-		work.type = post.type;
 		work.sym = post.sym ? post.sym : undefined;
 
 		var locales = post.en ? ['ru', 'en'] : ['ru'];
@@ -44,8 +49,8 @@ module.exports = function(Model, Params) {
 			checkNested(post, [locale, 'title'])
 				&& work.setPropertyLocalised('title', post[locale].title, locale);
 
-			checkNested(post, [locale, 's_title'])
-				&& work.setPropertyLocalised('s_title', post[locale].s_title, locale);
+			checkNested(post, [locale, 'program'])
+				&& work.setPropertyLocalised('program', post[locale].program, locale);
 
 			checkNested(post, [locale, 'area'])
 				&& work.setPropertyLocalised('area', post[locale].area, locale);
@@ -60,9 +65,7 @@ module.exports = function(Model, Params) {
 
 		async.series([
 			async.apply(uploadImages, work, 'works', null, post.images),
-			async.apply(uploadImage, work, 'works', 'poster', 600, files.poster && files.poster[0], null),
-			async.apply(uploadImage, work, 'works', 'poster_column', 600, files.poster_column && files.poster_column[0], null),
-			async.apply(filesUpload, work, 'works', 'files', post, files),
+			async.apply(uploadImage, work, 'works', 'poster', 1200, files.poster && files.poster[0], null),
 		], function(err, results) {
 			if (err) return next(err);
 

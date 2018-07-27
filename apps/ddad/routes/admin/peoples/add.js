@@ -6,8 +6,6 @@ module.exports = function(Model, Params) {
 
 	var People = Model.People;
 
-	var uploadImage = Params.upload.image;
-	var uploadFile = Params.upload.file;
 	var checkNested = Params.locale.checkNested;
 
 
@@ -25,7 +23,6 @@ module.exports = function(Model, Params) {
 		people._short_id = shortid.generate();
 		people.status = post.status;
 		people.type = post.type;
-		people.link = post.link;
 		people.sym = post.sym ? post.sym : undefined;
 		people.date = moment(post.date.date + 'T' + post.date.time.hours + ':' + post.date.time.minutes);
 
@@ -39,18 +36,10 @@ module.exports = function(Model, Params) {
 				&& people.setPropertyLocalised('description', post[locale].description, locale);
 		});
 
-		uploadImage(people, 'peoples', 'photo', 400, files.photo && files.photo[0], null, function(err, people) {
+		people.save(function(err, people) {
 			if (err) return next(err);
 
-			uploadFile(people, 'peoples', 'attach_cv', files.attach_cv && files.attach_cv[0], null, function(err, people) {
-				if (err) return next(err);
-
-				people.save(function(err, people) {
-					if (err) return next(err);
-
-					res.redirect('/admin/peoples');
-				});
-			});
+			res.redirect('/admin/peoples');
 		});
 	};
 
