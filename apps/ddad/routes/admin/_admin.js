@@ -31,8 +31,8 @@ module.exports = (function() {
 
 	router.use('/works', checkAuth, upload.fields([ { name: 'poster' } ]), admin.works);
 	router.use('/publications', checkAuth, upload.fields([ { name: 'poster' }, { name: 'attach' } ]), admin.publications);
-	router.use('/peoples', checkAuth, upload.fields([ { name: 'attach_cv' }, { name: 'photo' } ]), admin.peoples);
-	router.use('/partners', checkAuth, upload.fields([ { name: 'logo' } ]), admin.peoples);
+	router.use('/peoples', checkAuth, admin.peoples);
+	router.use('/partners', checkAuth, upload.fields([ { name: 'logo' } ]), admin.partners);
 	router.use('/users', checkAuth, admin.users);
 
 	router.post('/preview', checkAuth, upload.single('image'), admin.options.preview);

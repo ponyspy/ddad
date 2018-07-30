@@ -25,7 +25,7 @@ module.exports = (function() {
 		.get(partnerSchema.add.index)
 		.post(partnerSchema.add.form);
 
-	router.route('/edit/:people_id')
+	router.route('/edit/:partner_id')
 		.get(partnerSchema.edit.index)
 		.post(partnerSchema.edit.form);
 
