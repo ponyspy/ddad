@@ -1,10 +1,10 @@
 {
 	"apps": [
 		{
-			"name": "kosmos",
-			"script": "./apps/kosmos/app.js",
+			"name": "ddad",
+			"script": "./apps/ddad/app.js",
 			"exec_mode": "fork",
-			"watch": ["apps/kosmos/app.js", "apps/kosmos/models", "apps/kosmos/routes", "locales/ru.json", "locales/en.json"],
+			"watch": ["apps/ddad/app.js", "apps/ddad/models", "apps/ddad/routes", "locales/ru.json", "locales/en.json"],
 			"min_uptime": "300s",
 			"autorestart": false,
 			"max_restarts": 1,

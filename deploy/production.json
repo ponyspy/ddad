@@ -1,8 +1,8 @@
 {
 	"apps": [
 		{
-			"name": "kosmos",
-			"script": "./apps/kosmos/app.js",
+			"name": "ddad",
+			"script": "./apps/ddad/app.js",
 			"exec_mode": "fork",
 			"autorestart": true,
 			"min_uptime": "300s",

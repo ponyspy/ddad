@@ -37,6 +37,7 @@ module.exports = function(Model, Params) {
 
 		work._short_id = shortid.generate();
 		work.status = post.status;
+		work.num = post.num;
 		work.date = moment(post.date.date + 'T' + post.date.time.hours + ':' + post.date.time.minutes);
 		work.partners = post.partners.filter(function(partner) { return partner != 'none'; });
 		work.peoples = post.peoples.filter(function(people) { return people != 'none'; });
