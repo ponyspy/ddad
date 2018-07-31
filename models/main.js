@@ -43,7 +43,6 @@ var workSchema = new Schema({
 	images: [{
 		size: String,
 		gallery: Boolean,
-		main: Boolean,
 		description: { type: String, trim: true, locale: true },
 		original: { type: String },
 		thumb: { type: String },
