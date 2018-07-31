@@ -56,7 +56,6 @@ var peopleSchema = new Schema({
 	name: { type: String, trim: true, locale: true },
 	type: String,
 	status: String,
-	sym: { type: String, trim: true, index: true, unique: true, sparse: true },
 	_short_id: { type: String, unique: true, index: true, sparse: true },
 	date: { type: Date, default: Date.now },
 });
