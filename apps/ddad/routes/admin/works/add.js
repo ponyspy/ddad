@@ -11,9 +11,9 @@ module.exports = function(Model, Params) {
 
 	var uploadImages = Params.upload.images;
 	var uploadImage = Params.upload.image;
-	var filesUpload = Params.upload.files_upload;
-	var filesDelete = Params.upload.files_delete;
 	var checkNested = Params.locale.checkNested;
+	var youtubeId = Params.helpers.youtubeId;
+	var vimeoId = Params.helpers.vimeoId;
 
 
 	module.index = function(req, res, next) {
@@ -43,6 +43,22 @@ module.exports = function(Model, Params) {
 		work.peoples = post.peoples.filter(function(people) { return people != 'none'; });
 		work.year = post.year;
 		work.sym = post.sym ? post.sym : undefined;
+		work.video = youtubeId(post.video) || vimeoId(post.video) || undefined;
+
+
+		if (youtubeId(post.video)) {
+			work.video = {
+				provider: 'youtube',
+				id: youtubeId(post.video)
+			}
+		} else if (vimeoId(post.video)) {
+			work.video = {
+				provider: 'vimeo',
+				id: vimeoId(post.video)
+			}
+		} else {
+			work.video = undefined;
+		}
 
 		var locales = post.en ? ['ru', 'en'] : ['ru'];
 

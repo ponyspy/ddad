@@ -39,7 +39,10 @@ var workSchema = new Schema({
 	sym: { type: String, trim: true, index: true, unique: true, sparse: true },
 	partners: [{ type: ObjectId, ref: 'Partner' }],
 	peoples: [{ type: ObjectId, ref: 'People' }],
-	video: String,
+	video: {
+		provider: String,
+		id: String
+	},
 	images: [{
 		size: String,
 		gallery: Boolean,
