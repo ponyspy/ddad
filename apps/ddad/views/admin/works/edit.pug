@@ -37,7 +37,7 @@ block content
 			+form_text_single('area', work)
 			.form_title Описание:
 			+form_text_multi('description', work)
-			.form_title Видео:
+			.form_title Видео YouTube / Vimeo:
 			input(type='text', name='video', value=work.video.provider ? (work.video.provider == 'youtube' ? 'https://youtu.be/' + work.video.id : 'https://vimeo.com/' + work.video.id) : '')
 			.form_title Обложка:
 			+form_single_file('poster', work)(accept='image/jpeg,image/png,image/gif')
