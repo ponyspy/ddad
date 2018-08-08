@@ -27,6 +27,10 @@ block content
 			input(type='text', name='link')
 			.form_title Логотип:
 			+form_single_file('logog')(accept='image/jpeg,image/png,image/gif')
+			.form_title Размер:
+			select(name='size')
+				option(value='1x') 1x
+				option(value='2x') 2x
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

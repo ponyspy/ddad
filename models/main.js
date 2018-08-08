@@ -66,6 +66,7 @@ var peopleSchema = new Schema({
 var partnerSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	logo: { type: String },
+	size: { type: String },
 	link: String,
 	status: String,
 	_short_id: { type: String, unique: true, index: true, sparse: true },

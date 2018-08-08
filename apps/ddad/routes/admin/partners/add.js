@@ -26,6 +26,7 @@ module.exports = function(Model, Params) {
 		partner.status = post.status;
 		partner.link = post.link;
 		partner.date = moment(post.date.date + 'T' + post.date.time.hours + ':' + post.date.time.minutes);
+		partner.size = post.size;
 
 		var locales = post.en ? ['ru', 'en'] : ['ru'];
 
