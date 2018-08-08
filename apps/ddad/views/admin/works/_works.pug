@@ -2,9 +2,10 @@
 	each work in works
 		.list_item
 			a.item_rm.work(href='#', id=work._id) -- удалить
+			if work.num
+				span=work.num
+				span= ' - '
 			a.item_title(href='/admin/works/edit/' + work._id, class=work.status)= (work.i18n.title.get('ru') || '!!! ПУСТОЕ ПОЛЕ !!!')
-			span= ' | '
-			span=work.num
 			span.item_preview
 				span= ' --> '
 				a(href='/works/' + (work.sym ? work.sym : work._short_id), target='_blank') превью
