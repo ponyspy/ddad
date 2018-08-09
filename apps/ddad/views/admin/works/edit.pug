@@ -43,6 +43,8 @@ block content
 			+form_single_file('poster', work)(accept='image/jpeg,image/png,image/gif')
 			.form_title Изображения:
 			+form_images_upload(work.images)
+			.form_title Геометки:
+			+form_multiple_geo('geo', work)
 			.form_title Команда:
 			+form_multiple_select('peoples', peoples, work.peoples)(field='name')
 			.form_title Партнеры:

@@ -88,6 +88,27 @@ mixin form_multiple_input(path, options)
 					input.input(type='text', name=path + '[]', value=option)
 		input.forward(type="button", value="+")
 
+//- Multiple Geo Form
+
+mixin form_multiple_geo(path, options)
+	.snake_outer
+		if (!options || !options[path] || !options[path].length > 0)
+			.snake
+				input.back(type='button', value='-')
+				input.input(type='text', name=path + '[lat][]', placeholder='Latitude')
+				input.input(type='text', name=path + '[long][]', placeholder='Longitude')
+				br
+		else
+			each option in options[path]
+				.snake
+					input.back(type='button', value='-')
+					input.input(type='text', name=path + '[lat][]', placeholder='Latitude', value=option.lat)
+					input.input(type='text', name=path + '[long][]', placeholder='Longitude', value=option.long)
+					br
+		input.forward(type='button', value='+')
+		span= ' --> '
+		a(href='https://www.latlong.net', target='_blank') координаты
+
 //- Single File Form
 
 mixin form_single_file(path, object)
