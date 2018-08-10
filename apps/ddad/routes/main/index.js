@@ -4,30 +4,10 @@ module.exports = function(Model) {
 	var Work = Model.Work;
 
 	module.index = function(req, res) {
-		Work.aggregate()
-				.match({'images.main': true})
-				.unwind('images')
-				.group({
-					'_id': null,
-					'images': {
-						$push: {
-							$cond: {
-								if: {  '$eq': ['$images.main', true] },
-								then: '$images.thumb',
-								else: false
-							}
-						}
-					}
-				})
-				.project({
-					'_id': 0,
-					'images': { $setDifference: ['$images', [false]] }
-				})
-				.exec(function(err, result) {
-					var result = result && result[0] && result[0].images || [];
+		Work.find().sort('-date').exec(function(err, works) {
 
-					res.render('main/index.pug', { posters: result });
-				});
+			res.render('main/index.pug', { works: works });
+		});
 	};
 
 	return module;
