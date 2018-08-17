@@ -2,15 +2,36 @@
 @media screen and (max-width: 680px)
 	@import 'mobile/_global.styl'
 
-html, body
+body
 	margin 0
 	padding 0
-	// font-smoothing: antialiased;
-	// -moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
-h1, h2
-	margin 0
-	padding 0
+.title_block
+	width 100%
+	position absolute
+	padding 20px
+	box-sizing border-box
+	z-index 9999
 
-a
+.logo_block
+	float left
 	color black
+	text-decoration none
+	font-family 'Helvetica Neue'
+	font-weight bold
+	font-size 14pt
+	line-height 16pt
+
+.menu_block
+	float right
+	a
+		font-family 'Helvetica Neue'
+		font-weight bold
+		font-size 14pt
+		line-height 16pt
+		text-decoration none
+		color black
+		text-align right
+		margin-left 20px

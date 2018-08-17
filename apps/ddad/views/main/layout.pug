@@ -3,9 +3,16 @@ html
 	head
 		include header
 	body
-		.main_block
-			.title_block
-			.content_block
-				block content
-			.footer_block
+		.title_block
+			a.logo_block(href='/') DD:A|D
+			.menu_block
+				.menu_open
+				.menu_items
+					a(href='/about') ABOUT
+					a(href='/lang/ru') RU
+
+		.content_block
+			block content
+
+		.footer_block
 		include counters

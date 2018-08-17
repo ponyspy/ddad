@@ -1,7 +1,7 @@
 extends layout
 
 block header_meta
-	- var content_title= __('DD:A|D')
+	- var content_title= 'DD:A|D'
 	//- - var content_description= __('')
 
 block header_include
@@ -9,4 +9,21 @@ block header_include
 	- var include_js = ['main.js']
 
 block content
-	h1 ddad!
+	.title_directions CASES
+	.directions
+		.d_item.one: a(href='#') M
+		.d_item.two: a(href='#') H&P
+		.d_item.three: a(href='#') S
+		.d_item.four: a(href='#') RiK
+		.d_item.five: a(href='#') MB
+
+	.title_projects PROJECTS
+	.projects
+		- var categorys = ['one', 'two', 'three', 'four', 'five', 'six', 'seven']
+
+		each work in works
+			- var category = categorys.sort(function() {return .5 - Math.random(); })
+			.p_item(class=category[0])
+				a(href='/works/' + work._short_id)
+					span.num= work.num
+					span.title= work.i18n.title.get(locale)

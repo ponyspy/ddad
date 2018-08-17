@@ -1,2 +1,70 @@
 @media screen and (max-width: 680px)
 	@import 'mobile/_main.styl'
+
+body
+	margin 0
+
+.content_block
+	padding 20px
+	padding-top 60px
+
+.title_projects
+.title_directions
+	text-align center
+	font-family 'Helvetica Neue'
+	font-weight bold
+	font-size 12pt
+	line-height 18pt
+
+.title_directions
+	position absolute
+	top 20px
+	left 0
+	right 0
+
+.title_projects
+	margin-top 20px
+	margin-bottom 20px
+
+.directions
+	// text-align justify
+	// &:after
+	// 	content ''
+	// 	display inline-block
+	// 	width 100%
+	.d_item
+		margin-right 40px
+		&:last-child
+			margin-right 0
+		a
+			text-decoration none
+			color black
+		display inline-block
+		font-family 'Helvetica Neue'
+		font-size 120pt
+		line-height 120pt
+		font-weight bold
+		&.hover a
+			color lightgrey
+		&:hover a
+			text-decoration underline
+
+.projects
+	text-align left
+	.p_item
+		display inline
+		font-family 'Helvetica Neue'
+		font-weight bold
+		font-size 14pt
+		line-height 22pt
+		margin-right 15px
+		a
+			text-decoration none
+			color black
+			&:hover
+				border-bottom 2px solid black
+			.num
+				font-size 12pt
+				padding-right 15px
+		&.hover a
+			color lightgrey
