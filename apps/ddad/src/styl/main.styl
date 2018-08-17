@@ -8,23 +8,15 @@ body
 	padding 20px
 	padding-top 60px
 
-.title_projects
 .title_directions
 	text-align center
 	font-family 'Helvetica Neue'
-	font-weight bold
 	font-size 12pt
 	line-height 18pt
-
-.title_directions
 	position absolute
 	top 20px
 	left 0
 	right 0
-
-.title_projects
-	margin-top 20px
-	margin-bottom 20px
 
 .directions
 	// text-align justify
@@ -39,18 +31,26 @@ body
 		a
 			text-decoration none
 			color black
+			font-size 140pt
+			line-height 130pt
+			font-weight bold
+		.title
+			text-align center
+			background-color black
 		display inline-block
 		font-family 'Helvetica Neue'
-		font-size 120pt
-		line-height 120pt
-		font-weight bold
-		&.hover a
-			color lightgrey
-		&:hover a
-			text-decoration underline
+		&.hover
+			.title
+				color lightgrey
+				background-color lightgrey
+			a
+				color lightgrey
+		&:hover .title
+			background-color transparent
 
 .projects
 	text-align left
+	margin-top 20px
 	.p_item
 		display inline
 		font-family 'Helvetica Neue'

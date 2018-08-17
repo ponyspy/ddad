@@ -9,15 +9,24 @@ block header_include
 	- var include_js = ['main.js']
 
 block content
-	.title_directions CASES
+	.title_directions CASES & PROJECTS
 	.directions
-		.d_item.manege: a(href='#') M
-		.d_item.hist_pat: a(href='#') H&P
-		.d_item.sidur: a(href='#') S
-		.d_item.rik: a(href='#') RiK
-		.d_item.moscow_biennale: a(href='#') MB
+		.d_item.manege
+			a(href='#') M
+			.title MANEGE
+		.d_item.hist_pat
+			a(href='#') H&P
+			.title HYSTORIC & PATRIOTIC
+		.d_item.sidur
+			a(href='#') S
+			.title SIDUR
+		.d_item.rik
+			a(href='#') RiK
+			.title RABOCHIY I KOLKHOZNITSA
+		.d_item.moscow_biennale
+			a(href='#') MB
+			.title MOSCOW BIENNALE
 
-	.title_projects PROJECTS
 	.projects
 		each work in works
 			.p_item(class=work.case)
