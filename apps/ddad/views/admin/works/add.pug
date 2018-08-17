@@ -49,6 +49,14 @@ block content
 			+form_multiple_select('peoples', peoples)(field='name')
 			.form_title Партнеры:
 			+form_multiple_select('partners', partners)
+			.form_title Кейс:
+			select(name='case')
+				option(value='') нет
+				option(value='manege') manege
+				option(value='sidur') sidur
+				option(value='rik') RiK
+				option(value='moscow_biennale') MB
+				option(value='hist_pat') H&P
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

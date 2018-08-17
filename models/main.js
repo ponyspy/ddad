@@ -31,6 +31,7 @@ var workSchema = new Schema({
 	area: { type: String, trim: true, locale: true },
 	program: { type: String, trim: true, locale: true },
 	poster: { type: String },
+	case: { type: String },
 	geo: [{
 		lat: String,
 		long: String

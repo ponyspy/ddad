@@ -55,6 +55,7 @@ module.exports = function(Model, Params) {
 			work.peoples = post.peoples.filter(function(people) { return people != 'none'; });
 			work.year = post.year;
 			work.sym = post.sym ? post.sym : undefined;
+			work.case = post.case ? post.case : undefined;
 
 			work.geo = post.geo.lat && post.geo.lat.length > 0 && post.geo.lat.map(function(item, i) {
 				return {
