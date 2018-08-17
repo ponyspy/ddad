@@ -8,6 +8,9 @@ html
 			.menu_block
 				.menu_open
 				.menu_items
+					if (session && session.user_id)
+						a(href='/admin') STARGAZER
+						a(href='/auth/logout') EXIT
 					a(href='/about') ABOUT
 					a(href='/lang/ru') RU
 
