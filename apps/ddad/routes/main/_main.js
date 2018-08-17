@@ -4,10 +4,8 @@ var Model = require(__glob_root + '/models/main.js');
 
 var main = {
 	index: require('./index.js')(Model),
-	projects: require('./works.js')(Model, 'project'),
-	researches: require('./works.js')(Model, 'research'),
-	office: require('./office.js')(Model),
-	cv: require('./cv.js')(Model),
+	works: require('./works.js')(Model),
+	about: require('./about.js')(Model),
 	options: require('./options.js')(Model)
 };
 
@@ -17,8 +15,26 @@ module.exports = (function() {
 	router.route('/')
 		.get(main.index.index);
 
-	// router.route('/about')
-	// 	.get(main.about.index);
+	router.route('/about')
+		.get(main.about.index);
+
+	router.route('/about/bio')
+		.get(main.about.bio);
+
+	router.route('/about/contacts')
+		.get(main.about.contacts);
+
+	router.route('/about/press')
+		.get(main.about.press);
+
+	router.route('/about/geo')
+		.get(main.about.geo);
+
+	router.route('/about/partners')
+		.get(main.about.partners);
+
+	router.route('/about/team')
+		.get(main.about.team);
 
 	router.route('/lang/:locale').get(function(req, res) {
 		res.cookie('locale', req.params.locale);

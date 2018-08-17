@@ -12,7 +12,10 @@ html
 						a(href='/admin') STARGAZER
 						a(href='/auth/logout') EXIT
 					a(href='/about') ABOUT
-					a(href='/lang/ru') RU
+					if locale == 'ru'
+						a.lang.en(href='/lang/en') EN
+					else
+						a.lang.ru(href='/lang/ru') RU
 
 		.content_block
 			block content
