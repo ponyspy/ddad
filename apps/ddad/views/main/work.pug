@@ -16,9 +16,10 @@ block content
 	.column.left
 		.project_images
 			each image in images
-				.image(class=image.size)
+				.image(class='size_' + image.size)
+					- var description = image.description.filter(function(lang) { return lang.lg == locale })
 					img(src=image.thumb)
-					.title: span= image.description
+					.title: span= description.length ? description[0].value : ''
 
 	.column.right
 		.project_title
@@ -41,11 +42,15 @@ block content
 			.meta_item
 				.item_title: span Client
 				.item_value: span= work.i18n.client.get(locale)
-			.meta_item
-				.item_title: span Location
-				.item_value: span= work.i18n.location.get(locale)
+			//- .meta_item
+			//- 	.item_title: span Location
+			//- 	.item_value: span= work.i18n.location.get(locale)
 			.meta_item
 				.item_title: span Team
 				.item_value: span Name Name Name Name
+			.meta_item
+				.item_title: span Partners
+				.item_value: span Partner Partner Partner Partner
+
 
 		.project_description= work.i18n.description.get(locale)
