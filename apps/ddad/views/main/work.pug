@@ -45,23 +45,19 @@ block content
 			.meta_item
 				.item_title Location
 				.item_value
-					div Location
-					div Location
-					div Location
-			.meta_item
-				.item_title Team
-				.item_value
-					div Name
-					div Name
-					div Name
-					div Name
+					each item in work.geo
+						- var name = item.name.filter(function(lang) { return lang.lg == locale })
+						span= name.length ? name[0].value : ''
 			.meta_item
 				.item_title Partners
 				.item_value
-					div Partner
-					div Partner
-					div Partner
-					div Partne
+					each partner in work.partners
+						a(href=partner.link, target='_blank')= partner.i18n.title.get(locale)
+			.meta_item
+				.item_title Team
+				.item_value
+					each people in work.peoples
+						div= people.i18n.name.get(locale)
 
 
 		.project_description= work.i18n.description.get(locale)

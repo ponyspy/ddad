@@ -51,6 +51,15 @@
 			vertical-align top
 			width 60%
 			display inline-block
+			a, span
+				color black
+				text-decoration none
+				&:after
+					content ','
+					margin-right 5px
+				&:last-child:after
+					content ''
+					margin-right 0
 
 .project_description
 	font-family 'Helvetica Neue'
