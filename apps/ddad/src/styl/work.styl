@@ -22,19 +22,17 @@
 
 .project_title
 	font-family 'Helvetica Neue'
-	font-size 32pt
-	line-height 42pt
-	font-weight bold
+	font-size 28pt
+	line-height 30pt
 	.num
-		margin-right 60px
-	// .title
-	// 	border-bottom 4px solid black
+		margin-right 40px
+	.title
+		font-weight bold
 
 .project_meta
 	font-family 'Helvetica Neue'
 	font-size 12pt
-	line-height 18pt
-	font-weight bold
+	line-height 16pt
 	margin-top 40px
 	margin-bottom 40px
 	overflow hidden
@@ -45,14 +43,14 @@
 			vertical-align top
 			display inline-block
 			width 30%
-			// span
-			// 	border-bottom 2px solid black
+			text-transform uppercase
+			&:after
+				content ':'
 		.item_value
+			font-weight bold
 			vertical-align top
 			width 60%
 			display inline-block
-			// span
-			// 	border-bottom 2px solid black
 
 .project_description
 	font-family 'Helvetica Neue'
@@ -84,7 +82,5 @@
 		font-size 12pt
 		line-height 18pt
 		font-weight bold
-		span
-			border-bottom 2px solid black
 	img
 		width 100%

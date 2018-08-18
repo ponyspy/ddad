@@ -1,7 +1,7 @@
 extends layout
 
 block header_meta
-	- var content_title= 'Work'
+	- var content_title= 'DD:A|D' + ' / ' + work.i18n.title.get(locale)
 	- var content_description = ''
 	- var content_images = [work.poster]
 
@@ -19,7 +19,7 @@ block content
 				.image(class='size_' + image.size)
 					- var description = image.description.filter(function(lang) { return lang.lg == locale })
 					img(src=image.thumb)
-					.title: span= description.length ? description[0].value : ''
+					.title= description.length ? description[0].value : ''
 
 	.column.right
 		.project_title
