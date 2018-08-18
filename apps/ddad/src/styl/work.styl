@@ -1,2 +1,92 @@
 @media screen and (max-width: 680px)
 	@import 'mobile/_work.styl'
+
+.content_block
+	padding 20px
+	padding-top 80px
+
+.title_block
+	position fixed
+
+.column
+	width 50%
+	&.left
+		left 0
+		position absolute
+	&.right
+		right 0
+		position fixed
+		padding-right 20px
+		box-sizing border-box
+
+
+.project_title
+	font-family 'Helvetica Neue'
+	font-size 32pt
+	line-height 42pt
+	font-weight bold
+	.num
+		margin-right 60px
+	// .title
+	// 	border-bottom 4px solid black
+
+.project_meta
+	font-family 'Helvetica Neue'
+	font-size 12pt
+	line-height 18pt
+	font-weight bold
+	margin-top 40px
+	margin-bottom 40px
+	overflow hidden
+	.meta_item
+		width 50%
+		float left
+		.item_title
+			vertical-align top
+			display inline-block
+			width 30%
+			// span
+			// 	border-bottom 2px solid black
+		.item_value
+			vertical-align top
+			width 60%
+			display inline-block
+			// span
+			// 	border-bottom 2px solid black
+
+.project_description
+	font-family 'Helvetica Neue'
+	font-size 14pt
+	line-height 18pt
+	font-weight bold
+
+.project_images
+	margin-bottom 60px
+	overflow hidden
+	.image
+		margin-bottom 40px
+		font-size 0
+		position relative
+		width 100%
+		float left
+		padding-left 20px
+		padding-right 20px
+		box-sizing border-box
+		&.x1
+			.title
+				max-width 50%
+		&.x2
+			width 50%
+		&.x3
+			width 33.333333333%
+	.title
+		hyphens auto
+		margin-top 20px
+		font-family 'Helvetica Neue'
+		font-size 12pt
+		line-height 18pt
+		font-weight bold
+		span
+			border-bottom 2px solid black
+	img
+		width 100%

@@ -29,10 +29,12 @@ var workSchema = new Schema({
 	year: Number,
 	client: { type: String, trim: true, locale: true },
 	area: { type: String, trim: true, locale: true },
+	build_status: { type: String, trim: true, locale: true },
 	program: { type: String, trim: true, locale: true },
 	poster: { type: String },
 	case: { type: String },
 	geo: [{
+		name: { type: String, trim: true, locale: true },
 		lat: String,
 		long: String
 	}],

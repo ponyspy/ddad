@@ -12,4 +12,40 @@ block header_include
 	- var include_js = ['work.js']
 
 block content
-	h1 work!
+
+	.column.left
+		.project_images
+			each image in images
+				.image(class=image.size)
+					img(src=image.thumb)
+					.title: span= image.description
+
+	.column.right
+		.project_title
+			span.num= work.num
+			span.title= work.i18n.title.get(locale)
+
+		.project_meta
+			.meta_item
+				.item_title: span Year
+				.item_value: span= work.year
+			.meta_item
+				.item_title: span Program
+				.item_value: span= work.i18n.program.get(locale)
+			.meta_item
+				.item_title: span Аrea
+				.item_value: span= work.i18n.area.get(locale)
+			.meta_item
+				.item_title: span Status
+				.item_value: span= work.i18n.build_status.get(locale)
+			.meta_item
+				.item_title: span Client
+				.item_value: span= work.i18n.client.get(locale)
+			.meta_item
+				.item_title: span Location
+				.item_value: span= work.i18n.location.get(locale)
+			.meta_item
+				.item_title: span Team
+				.item_value: span Name Name Name Name
+
+		.project_description= work.i18n.description.get(locale)
