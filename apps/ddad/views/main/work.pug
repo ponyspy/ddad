@@ -28,29 +28,40 @@ block content
 
 		.project_meta
 			.meta_item
-				.item_title: span Year
-				.item_value: span= work.year
+				.item_title Year
+				.item_value= work.year
 			.meta_item
-				.item_title: span Program
-				.item_value: span= work.i18n.program.get(locale)
+				.item_title Program
+				.item_value= work.i18n.program.get(locale)
 			.meta_item
-				.item_title: span Аrea
-				.item_value: span= work.i18n.area.get(locale)
+				.item_title Аrea
+				.item_value= work.i18n.area.get(locale)
 			.meta_item
-				.item_title: span Status
-				.item_value: span= work.i18n.build_status.get(locale)
+				.item_title Status
+				.item_value= work.i18n.build_status.get(locale)
 			.meta_item
-				.item_title: span Client
-				.item_value: span= work.i18n.client.get(locale)
-			//- .meta_item
-			//- 	.item_title: span Location
-			//- 	.item_value: span= work.i18n.location.get(locale)
+				.item_title Client
+				.item_value= work.i18n.client.get(locale)
 			.meta_item
-				.item_title: span Team
-				.item_value: span Name Name Name Name
+				.item_title Location
+				.item_value
+					div Location
+					div Location
+					div Location
 			.meta_item
-				.item_title: span Partners
-				.item_value: span Partner Partner Partner Partner
+				.item_title Team
+				.item_value
+					div Name
+					div Name
+					div Name
+					div Name
+			.meta_item
+				.item_title Partners
+				.item_value
+					div Partner
+					div Partner
+					div Partner
+					div Partne
 
 
 		.project_description= work.i18n.description.get(locale)
