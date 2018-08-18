@@ -46,9 +46,18 @@ module.exports = function(Model, Params) {
 		work.case = post.case ? post.case : undefined;
 
 		work.geo = post.geo.lat && post.geo.lat.length > 0 && post.geo.lat.map(function(item, i) {
+			var name = [];
+
+			name.push({ 'lg': 'ru', 'value': post.geo.name.ru[i] })
+
+			if (post.geo.name.en) {
+				name.push({ 'lg': 'en', 'value': post.geo.name.en[i] })
+			}
+
 			return {
 				'lat': item,
-				'long': post.geo.long[i]
+				'long': post.geo.long[i],
+				'name': name
 			}
 		}) || [];
 

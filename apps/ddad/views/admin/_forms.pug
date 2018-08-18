@@ -91,6 +91,7 @@ mixin form_multiple_input(path, options)
 //- Multiple Geo Form
 
 mixin form_multiple_geo(path, options)
+	- function get_locale(option, lang) {return ((option.filter(function(locale) {return locale.lg == lang; })[0] || {}).value || ''); }
 	.snake_outer
 		if (!options || !options[path] || !options[path].length > 0)
 			.snake
@@ -98,12 +99,22 @@ mixin form_multiple_geo(path, options)
 				input.input(type='text', name=path + '[lat][]', placeholder='Latitude')
 				input.input(type='text', name=path + '[long][]', placeholder='Longitude')
 				br
+				br
+				input.ru(type="text", name=path + "[name][ru][]")
+				input.en(type="text", name=path + "[name][en][]", disabled)
+				br
+				br
 		else
 			each option in options[path]
 				.snake
 					input.back(type='button', value='-')
 					input.input(type='text', name=path + '[lat][]', placeholder='Latitude', value=option.lat)
 					input.input(type='text', name=path + '[long][]', placeholder='Longitude', value=option.long)
+					br
+					br
+					input.ru(type="text", name=path + "[name][ru][]", value=get_locale(option.name, 'ru'))
+					input.en(type="text", name=path + "[name][en][]", disabled, value=get_locale(option.name, 'en'))
+					br
 					br
 		input.forward(type='button', value='+')
 		span= ' --> '
