@@ -71,7 +71,7 @@ module.exports = function(Model) {
 	module.team = function(req, res, next) {
 
 		People.find().sort('-date').exec(function(err, peoples) {
-			res.render('main/about/peoples.pug', { peoples: peoples });
+			res.render('main/about/team.pug', { peoples: peoples });
 		});
 	};
 
