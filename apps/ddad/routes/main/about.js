@@ -18,7 +18,7 @@ module.exports = function(Model) {
 	module.bio = function(req, res, next) {
 
 		fs.readFile(__app_root + '/static/cv_' + req.locale + '.html', function(err, content) {
-			res.render('about/bio.pug', content || '');
+			res.render('main/about/bio.pug', content || '');
 		});
 	};
 
@@ -39,7 +39,7 @@ module.exports = function(Model) {
 		}, function(err, results) {
 			if (err) return next(err);
 
-			res.render('about/contacts.pug', results);
+			res.render('main/about/contacts.pug', results);
 		});
 	};
 
@@ -47,7 +47,7 @@ module.exports = function(Model) {
 	module.press = function(req, res, next) {
 
 		Publication.find().sort('-date').exec(function(err, publications) {
-			res.render('about/press.pug', { publications: publications });
+			res.render('main/about/press.pug', { publications: publications });
 		});
 	};
 
@@ -55,7 +55,7 @@ module.exports = function(Model) {
 	module.geo = function(req, res, next) {
 
 		Work.find().sort('-date').exec(function(err, works) {
-			res.render('about/geo.pug', { works: works });
+			res.render('main/about/geo.pug', { works: works });
 		});
 	};
 
@@ -63,7 +63,7 @@ module.exports = function(Model) {
 	module.partners = function(req, res, next) {
 
 		Partner.find().sort('-date').exec(function(err, partners) {
-			res.render('about/partners.pug', { partners: partners });
+			res.render('main/about/partners.pug', { partners: partners });
 		});
 	};
 
@@ -71,7 +71,7 @@ module.exports = function(Model) {
 	module.team = function(req, res, next) {
 
 		People.find().sort('-date').exec(function(err, peoples) {
-			res.render('about/peoples.pug', { peoples: peoples });
+			res.render('main/about/peoples.pug', { peoples: peoples });
 		});
 	};
 
