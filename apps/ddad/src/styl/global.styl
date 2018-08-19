@@ -24,6 +24,8 @@ body
 	line-height 14pt
 
 .menu_block
+	display flex
+	justify-content space-between
 	float right
 	a
 		font-family 'Helvetica Neue'
@@ -33,3 +35,22 @@ body
 		color black
 		text-align right
 		margin-left 20px
+	.menu_item
+		flex 1
+	.menu_about
+		flex 1
+		text-align center
+		top 20px
+		a
+			margin-left 0
+			text-transform uppercase
+			&.active
+				font-weight bold
+			&:after
+				content '/'
+				margin-left 5px
+				margin-right 5px
+			&:last-child:after
+				content ''
+				margin-left 0
+				margin-right 0

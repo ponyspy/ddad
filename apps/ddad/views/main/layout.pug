@@ -6,7 +6,14 @@ html
 		.title_block
 			a.logo_block(href='/') DD:A|D
 			.menu_block
-				.menu_open
+				if about
+					.menu_about
+						a(href='/about/bio', class=(about == 'bio' ? 'active' : '')) bio
+						a(href='/about/contacts', class=(about == 'contacts' ? 'active' : '')) contacts
+						a(href='/about/team', class=(about == 'team' ? 'active' : '')) team
+						a(href='/about/geo', class=(about == 'geo' ? 'active' : '')) geo
+						a(href='/about/partners', class=(about == 'partners' ? 'active' : '')) partners
+						a(href='/about/press', class=(about == 'press' ? 'active' : '')) press
 				.menu_items
 					if (session && session.user_id)
 						a(href='/admin') STARGAZER
