@@ -39,7 +39,7 @@ module.exports = function(Model) {
 		}, function(err, results) {
 			if (err) return next(err);
 
-			res.render('main/about/contacts.pug', results);
+			res.render('main/about/contacts.pug', {content: results});
 		});
 	};
 

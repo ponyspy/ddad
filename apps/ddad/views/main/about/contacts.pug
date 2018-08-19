@@ -10,4 +10,8 @@ block header_include
 	- var include_js = ['contacts.js']
 
 block content
-	h1 contacts!
+	.contacts_block
+		.column.poster
+		.column.body
+			.body_adress!= content.adress
+			.body_description!= content.desc
