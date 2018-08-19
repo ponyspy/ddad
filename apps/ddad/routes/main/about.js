@@ -18,7 +18,7 @@ module.exports = function(Model) {
 	module.bio = function(req, res, next) {
 
 		fs.readFile(__app_root + '/static/cv_' + req.locale + '.html', function(err, content) {
-			res.render('main/about/bio.pug', content || '');
+			res.render('main/about/bio.pug', { content: content || '' });
 		});
 	};
 

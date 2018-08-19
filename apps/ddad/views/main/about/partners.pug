@@ -10,4 +10,8 @@ block header_include
 	- var include_js = ['partners.js']
 
 block content
-	h1 partners!
+	.partners_block
+		each partner in partners
+			a.partner_item(href=partner.link, target='_blank', class='size_' + partner.size)
+				.partner_logo(style='background-image: url(' + partner.logo + ')')
+				.partner_title= partner.i18n.title.get(locale)
