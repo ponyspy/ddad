@@ -12,7 +12,6 @@ block header_include
 block sub_menu
 	a.sub_item.back_link(href='/admin') Назад
 	span.sub_item.toggle_eng Перевод
-	//- a.sub_item(href='/about', target='_blank') Превью
 	.sub_right_block
 		input.form_cancel(type='submit', value='Отменить')
 		input.form_submit(type='submit', value='Сохранить')
@@ -21,10 +20,7 @@ block content
 	.form_block
 		.title= content_title
 		form(action='', method='post')
-			.form_title Адрес:
-			input.ru(type='text', name='adress[ru]', value= content.adress_ru)
-			input.en(type='text', name='adress[en]', value= content.adress_en)
-			.form_title Описание:
+			.form_title Контакты:
 			.content
 				textarea.ru.editor(name='desc[ru]')= content.desc_ru
 				textarea.en.editor(name='desc[en]')= content.desc_en

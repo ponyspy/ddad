@@ -1,5 +1,4 @@
 var fs = require('fs');
-var async = require('async');
 
 module.exports = function(Model) {
 	var module = {};
@@ -25,21 +24,10 @@ module.exports = function(Model) {
 
 	module.contacts = function(req, res, next) {
 
-		async.parallel({
-			desc: function(callback) {
-				fs.readFile(__app_root + '/static/desc_' + req.locale + '.html', function(err, content) {
-					callback(null, content || '');
-				});
-			},
-			adress: function(callback) {
-				fs.readFile(__app_root + '/static/adress_' + req.locale + '.html', function(err, content) {
-					callback(null, content || '');
-				});
-			}
-		}, function(err, results) {
+		fs.readFile(__app_root + '/static/desc_' + req.locale + '.html', function(err, content) {
 			if (err) return next(err);
 
-			res.render('main/about/contacts.pug', {content: results});
+			res.render('main/about/contacts.pug', { content: content || '' });
 		});
 	};
 
