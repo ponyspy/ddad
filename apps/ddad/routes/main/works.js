@@ -10,7 +10,7 @@ module.exports = function(Model) {
 	module.work = function(req, res, next) {
 		var id = req.params.short_id;
 
-		Work.findOne({ '_short_id': id }).where('status').ne('hidden').populate('peoples partners').exec(function(err, work) {
+		Work.findOne({ $or: [ { '_short_id': id }, { 'sym': id } ] }).where('status').ne('hidden').populate('peoples partners').exec(function(err, work) {
 			if (err || !work) return next(err);
 
 			var images = work.images.reduce(function(prev, curr) {
