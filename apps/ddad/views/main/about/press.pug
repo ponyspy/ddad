@@ -10,4 +10,10 @@ block header_include
 	- var include_js = ['press.js']
 
 block content
-	h1 press!
+	.press_block
+		each publication in publications
+			a.publication_item(href=publication.attach ? publication.attach : publication.link, target='_blank')
+				.publication_logo(style='background-image: url(' + publication.poster + ')')
+				.publication_title= publication.i18n.title.get(locale)
+				.publication_s_title= publication.i18n.title.get(locale)
+				.publication_year= publication.year
