@@ -12,7 +12,7 @@ block header_include
 block content
 	.members_block
 		each people in peoples
-			.member_item
+			.member_item(class=people.status)
 				.member_name= people.i18n.name.get(locale)
 				.member_role= __(people.type)
 				//- .member_projects

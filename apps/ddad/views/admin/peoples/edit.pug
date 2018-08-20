@@ -33,6 +33,6 @@ block content
 			select(name='status')
 				option(value='base') Обычный
 				option(value='hidden', selected= people.status == 'hidden' && 'hidden') Скрытый
+				option(value='out', selected= people.status == 'out' && 'out') Исключен
 			.form_title Дата публикации:
 			+form_date('date', people.date)
-
