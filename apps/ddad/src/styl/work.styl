@@ -96,6 +96,31 @@
 .work_images
 	margin-bottom 60px
 	overflow hidden
+	.image_gallery
+		position relative
+		margin-bottom 40px
+		padding-left 20px
+		padding-right 20px
+		box-sizing border-box
+		float left
+		&.g_1x
+			width 50%
+		&.g_2x
+			width 100%
+		.swiper-container
+			position relative
+			width 100%
+		.swiper-slide
+			width 100%
+			.slide_image
+				display block
+			.slide_description
+				padding-top 10px
+				padding-bottom 10px
+				font-family 'HelveticaNeue Bold'
+				font-size 12pt
+				line-height 14pt
+
 	.image
 		margin-bottom 40px
 		font-size 0
@@ -105,11 +130,10 @@
 		padding-left 20px
 		padding-right 20px
 		box-sizing border-box
-		// &.size_1x
-		// 	.title
-		// 		max-width 50%
-		&.size_2x
+		&.size_1x
 			width 50%
+		&.size_2x
+			width 100%
 	.title
 		hyphens auto
 		margin-top 20px
