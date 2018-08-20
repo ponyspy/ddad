@@ -17,6 +17,8 @@ html
 				.menu_items
 					if (session && session.user_id)
 						a(href='/admin') STARGAZER
+						if edit_work
+							a(href='/admin/works/edit/' + edit_work, target='_blank') EDIT
 						a(href='/auth/logout') EXIT
 					a(href='/about') ABOUT
 					if locale == 'ru'

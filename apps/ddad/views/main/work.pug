@@ -4,6 +4,7 @@ block header_meta
 	- var content_title= 'DD:A|D' + ' / works / ' + work.i18n.title.get(locale)
 	- var content_description = ''
 	- var content_images = [work.poster]
+	- var edit_work = work._id
 
 block header_include
 	- var include_libs_css = ['swiper.min.css']
