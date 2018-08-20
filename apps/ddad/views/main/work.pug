@@ -23,10 +23,11 @@ block content
 
 		.work_images
 			each image in images
-				.image(class='size_' + image.size)
-					- var description = image.description.filter(function(lang) { return lang.lg == locale })
-					img(src=image.thumb)
-					.title= description.length ? description[0].value : ''
+				unless image.length
+					.image(class='size_' + image.size)
+						- var description = image.description.filter(function(lang) { return lang.lg == locale })
+						img(src=image.thumb)
+						.title= description.length ? description[0].value : ''
 
 	.column.right
 		.work_title
