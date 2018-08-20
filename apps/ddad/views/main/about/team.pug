@@ -12,9 +12,10 @@ block header_include
 block content
 	.members_block
 		each people in peoples
-			.member_item(class=people.status)
-				.member_name= people.i18n.name.get(locale)
-				.member_role= __(people.type)
-				//- .member_projects
-				//- 	each project, i in new Array(randInt(3, 6))
-				//- 		a.project_num(href='#')= randInt(1, 65)
+			if people.status !== 'special'
+				.member_item(class=people.status)
+					.member_name= people.i18n.name.get(locale)
+					.member_role= __(people.type)
+					//- .member_projects
+					//- 	each project, i in new Array(randInt(3, 6))
+					//- 		a.project_num(href='#')= randInt(1, 65)

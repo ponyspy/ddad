@@ -10,7 +10,7 @@ body
 
 .title_directions
 	text-align center
-	font-family 'Helvetica Neue'
+	font-family 'HelveticaNeue Roman'
 	font-size 12pt
 	line-height 14pt
 	position absolute
@@ -19,6 +19,7 @@ body
 	right 0
 
 .directions
+	margin-top 40px
 	// text-align justify
 	// &:after
 	// 	content ''
@@ -26,19 +27,21 @@ body
 	// 	width 100%
 	.d_item
 		margin-right 40px
+		display inline-block
+		font-family 'HelveticaNeue Roman'
 		&:last-child
 			margin-right 0
 		a
 			text-decoration none
 			color black
 			font-size 140pt
-			line-height 130pt
-			font-weight bold
+			line-height 100pt
+			font-family 'HelveticaNeue Bold'
 		.title
 			text-align center
+			font-size 12pt
+			line-height 14pt
 			background-color black
-		display inline-block
-		font-family 'Helvetica Neue'
 		&.hover
 			.title
 				color lightgrey
@@ -53,7 +56,7 @@ body
 	margin-top 20px
 	.p_item
 		display inline
-		font-family 'Helvetica Neue'
+		font-family 'HelveticaNeue Roman'
 		font-size 14pt
 		line-height 20pt
 		margin-right 15px
@@ -66,6 +69,6 @@ body
 				font-size 12pt
 				padding-right 15px
 			.title
-				font-weight bold
+				font-family 'HelveticaNeue Bold'
 		&.hover a
 			color lightgrey
