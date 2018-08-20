@@ -54,39 +54,53 @@ block content
 
 		.work_meta
 			.meta_column
-				.meta_item
-					.item_title Year
-					.item_value= work.year
-				.meta_item
-					.item_title Program
-					.item_value= work.i18n.program.get(locale)
-				.meta_item
-					.item_title Аrea
-					.item_value= work.i18n.area.get(locale)
-				.meta_item
-					.item_title Status
-					.item_value= work.i18n.build_status.get(locale)
-				.meta_item
-					.item_title Client
-					.item_value= work.i18n.client.get(locale)
-				.meta_item
-					.item_title Locations
-					.item_value
-						each item in work.geo
-							- var name = item.name.filter(function(lang) { return lang.lg == locale })
-							span= name.length ? name[0].value : ''
-				.meta_item
-					.item_title Partners
-					.item_value
-						each partner in work.partners
-							a(href=partner.link, target='_blank')= partner.i18n.title.get(locale)
+				if work.year
+					.meta_item
+						.item_title Year
+						.item_value= work.year
+
+				if work.i18n.program.get(locale) !== ''
+					.meta_item
+						.item_title Program
+						.item_value= work.i18n.program.get(locale)
+
+				if work.i18n.area.get(locale) !== ''
+					.meta_item
+						.item_title Аrea
+						.item_value= work.i18n.area.get(locale)
+
+				if work.i18n.build_status.get(locale) !== ''
+					.meta_item
+						.item_title Status
+						.item_value= work.i18n.build_status.get(locale)
+
+				if work.i18n.client.get(locale) !== ''
+					.meta_item
+						.item_title Client
+						.item_value= work.i18n.client.get(locale)
+
+				if work.geo.length
+					.meta_item
+						.item_title Locations
+						.item_value
+							each item in work.geo
+								- var name = item.name.filter(function(lang) { return lang.lg == locale })
+								span= name.length ? name[0].value : ''
+
+				if work.partners.length
+					.meta_item
+						.item_title Partners
+						.item_value
+							each partner in work.partners
+								a(href=partner.link, target='_blank')= partner.i18n.title.get(locale)
 
 			.meta_column
-				.meta_item
-					.item_title Team
-					.item_value
-						each people in work.peoples
-							div= __(people.type) + ' ' + people.i18n.name.get(locale)
+				if work.peoples.length
+					.meta_item
+						.item_title Team
+						.item_value
+							each people in work.peoples
+								div= __(people.type) + ' ' + people.i18n.name.get(locale)
 
 
 		.work_description!= work.i18n.description.get(locale)
