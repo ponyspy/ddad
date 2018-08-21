@@ -27,9 +27,10 @@ function initialize() {
 
 		var marker_position = new google.maps.LatLng(+elem_lat, +elem_long);
 		var marker_name = elem.getAttribute('data-name');
+		var marker_id = elem.getAttribute('data-id');
 
 		var infowindow = new google.maps.InfoWindow({
-				content: marker_name
+				content: '<a class="map_link" href="/works/' + marker_id +'">' + marker_name + '</a>'
 		});
 
 		var marker = new google.maps.Marker({

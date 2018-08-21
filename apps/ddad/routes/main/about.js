@@ -55,6 +55,7 @@ module.exports = function(Model) {
 				loc.length && loc.map(function(item) {
 					item.work = cur.i18n.title.get(req.locale);
 					item.num = cur.num;
+					item.work_id = cur.sym ? cur.sym : cur._short_id;
 				});
 
 				return prev.concat(loc);

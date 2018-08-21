@@ -13,6 +13,6 @@ block header_include
 block content
 	.locations_block
 		each location in locations
-			.location_item(data-lat=location.lat, data-long=location.long, data-name=location.num + ' - ' + location.work)
+			.location_item(data-lat=location.lat, data-long=location.long, data-id=location.work_id, data-name=location.num + ' - ' + location.work)
 
 	.map_block#map-canvas(data-placeholder='Moscow Manege')
