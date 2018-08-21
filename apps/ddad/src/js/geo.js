@@ -8,7 +8,7 @@ function initialize() {
 	var map_position = new google.maps.LatLng(55.753410, 37.612289);
 
 	var map_options = {
-		zoom: 17,
+		zoom: 5,
 		center: map_position,
 		styles: style_array,
 		zoomControl: false,

@@ -52,6 +52,11 @@ module.exports = function(Model) {
 					return item.lat !== '' && item.long !== '';
 				});
 
+				loc.length && loc.map(function(item) {
+					item.work = cur.i18n.title.get(req.locale);
+					item.num = cur.num;
+				});
+
 				return prev.concat(loc);
 			}, []);
 

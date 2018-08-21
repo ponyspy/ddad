@@ -13,7 +13,6 @@ block header_include
 block content
 	.locations_block
 		each location in locations
-			- var location_name = location.name.filter(function(lang) { return lang.lg == locale })
-			.location_item(data-lat=location.lat, data-long=location.long, data-name=location_name.length ? location_name[0].value : '')
+			.location_item(data-lat=location.lat, data-long=location.long, data-name=location.num + ' - ' + location.work)
 
 	.map_block#map-canvas(data-placeholder='Moscow Manege')
