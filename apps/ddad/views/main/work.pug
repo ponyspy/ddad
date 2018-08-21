@@ -39,13 +39,15 @@ block content
 									.swiper-slide
 										img.slide_image(src=slide.thumb)
 										- var description = slide.description.filter(function(lang) { return lang.lg == locale })
-										.slide_description= description.length ? description[0].value : ''
+										if description.length && description[0].value != ''
+											.slide_description= description[0].value
 
 				else
 					.image(class='size_' + image.size)
 						- var description = image.description.filter(function(lang) { return lang.lg == locale })
 						img(src=image.thumb)
-						.title= description.length ? description[0].value : ''
+						if description.length && description[0].value != ''
+							.image_description= description[0].value
 
 	.column.right
 		.work_title
