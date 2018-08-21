@@ -6,7 +6,6 @@ var style_array =
 function initialize() {
 	var map_canvas = document.getElementById('map-canvas');
 	var map_position = new google.maps.LatLng(55.753410, 37.612289);
-	var marker_position = new google.maps.LatLng(55.753410, 37.612289);
 
 	var map_options = {
 		zoom: 17,
@@ -22,18 +21,27 @@ function initialize() {
 
 	map = new google.maps.Map(map_canvas, map_options);
 
-	var infowindow = new google.maps.InfoWindow({
-			content: '<a class="map_link" href="https://www.google.com/maps/place/Манеж/@55.7532352,37.6116472,17.98z", target="_blank">' + map_canvas.getAttribute('data-placeholder') + '</a>'
-	});
+	[].forEach.call(document.getElementsByClassName('location_item'), function(elem) {
+		var elem_lat = elem.getAttribute('data-lat');
+		var elem_long = elem.getAttribute('data-long');
 
-	var marker = new google.maps.Marker({
-			position: marker_position,
-			map: map,
-			title: map_canvas.getAttribute('data-placeholder')
-	});
+		var marker_position = new google.maps.LatLng(+elem_lat, +elem_long);
+		var marker_name = elem.getAttribute('data-name');
 
-	google.maps.event.addListener(marker, 'click', function() {
-			infowindow.open(map, marker);
+		var infowindow = new google.maps.InfoWindow({
+				content: marker_name
+		});
+
+		var marker = new google.maps.Marker({
+				position: marker_position,
+				map: map,
+				title: marker_name
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+		});
+
 	});
 }
 

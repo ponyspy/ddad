@@ -11,4 +11,9 @@ block header_include
 	- var include_js = ['geo.js']
 
 block content
+	.locations_block
+		each location in locations
+			- var location_name = location.name.filter(function(lang) { return lang.lg == locale })
+			.location_item(data-lat=location.lat, data-long=location.long, data-name=location_name.length ? location_name[0].value : '')
+
 	.map_block#map-canvas(data-placeholder='Moscow Manege')
