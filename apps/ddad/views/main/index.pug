@@ -29,7 +29,7 @@ block content
 
 	.projects
 		each work in works
-			.p_item(class=work.case)
-				a(href='/works/' + (work.sym ? work.sym : work._short_id))
+			.p_item(class=work.case, class= work.status == 'special' ? 'special' : '')
+				a(href= work.status == 'special' ? '#' : '/works/' + (work.sym ? work.sym : work._short_id))
 					span.num= work.num
 					span.title= work.i18n.title.get(locale)
