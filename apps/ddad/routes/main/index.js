@@ -4,7 +4,7 @@ module.exports = function(Model) {
 	var Work = Model.Work;
 
 	module.index = function(req, res) {
-		Work.find().sort('-date').exec(function(err, works) {
+		Work.find().sort('num').exec(function(err, works) {
 
 			res.render('main/index.pug', { works: works });
 		});
