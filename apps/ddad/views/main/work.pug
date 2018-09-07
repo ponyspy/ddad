@@ -87,7 +87,7 @@ block content
 						.item_value
 							each item in work.geo
 								- var name = item.name.filter(function(lang) { return lang.lg == locale })
-								span= name.length ? name[0].value : ''
+								div= name.length ? name[0].value : ''
 
 				if work.partners.length
 					.meta_item
