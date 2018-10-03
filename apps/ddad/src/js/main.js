@@ -1,4 +1,16 @@
 $(function() {
+	$(document)
+		.on('mouseup touchend', function(e) {
+			if ($(e.target).closest('.p_item:not(.hover)').length) return;
+
+			if ($('.d_item').hasClass('select')) {
+				$('.p_item, .d_item').removeClass('hover select');
+				return false;
+			}
+
+			e.stopPropagation();
+		});
+
 	$('.p_item').each(function() {
 		var poster = $(this).attr('data-poster');
 
@@ -25,7 +37,7 @@ $(function() {
 
 	$('.p_item').not('.hover')
 		.on('click', function(e) {
-			var id = $(this).attr('data-id')
+			var id = $(this).attr('data-id');
 
 			localStorage.setItem(id, 'w_id');
 		})
