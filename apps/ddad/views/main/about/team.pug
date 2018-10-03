@@ -14,7 +14,7 @@ block content
 
 		.members_title Founders
 		.members_group
-			each people in peoples
+			each people in peoples.sort(function(a, b) { return a.type > b.type })
 				if (people.status !== 'out' && ['coordinator'].includes(people.type))
 					.member_item(class=people.status)
 						.member_name= people.i18n.name.get(locale)
@@ -22,7 +22,7 @@ block content
 
 		.members_title Team
 		.members_group
-			each people in peoples
+			each people in peoples.sort(function(a, b) { return a.type > b.type })
 				if (people.status !== 'out' && ['designer', 'architect', 'curator'].includes(people.type))
 					.member_item(class=people.status)
 						.member_name= people.i18n.name.get(locale)
@@ -30,7 +30,7 @@ block content
 
 		.members_title History
 		.members_group
-			each people in peoples
+			each people in peoples.sort(function(a, b) { return a.type > b.type })
 				if (people.status == 'out' && ['designer', 'architect', 'curator', 'coordinator'].includes(people.type))
 					.member_item(class=people.status)
 						.member_name= people.i18n.name.get(locale)
