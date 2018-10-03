@@ -7,6 +7,17 @@ body
 .content_block
 	padding 20px
 	padding-top 60px
+	z-index 1
+	position absolute
+
+.poster
+	width 100%
+	height 100%
+	z-index 0
+	position absolute
+	background-position center
+	background-size 40%
+	background-repeat no-repeat
 
 .directions
 	margin-top 40px
@@ -34,6 +45,7 @@ body
 			font-size 12pt
 			line-height 14pt
 			background-color black
+		&.active
 		&.hover
 			.title
 				color lightgrey
@@ -66,5 +78,8 @@ body
 				padding-right 15px
 			.title
 				font-family 'HelveticaNeue Bold'
-		&.hover a
-			color lightgrey
+		&.active
+		&.hover
+			a
+				pointer-events none
+				color lightgrey
