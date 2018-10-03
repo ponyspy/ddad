@@ -11,11 +11,27 @@ block header_include
 
 block content
 	.members_block
-		each people in peoples
-			if people.status !== 'special'
-				.member_item(class=people.status)
-					.member_name= people.i18n.name.get(locale)
-					.member_role= __(people.type)
-					//- .member_projects
-					//- 	each project, i in new Array(randInt(3, 6))
-					//- 		a.project_num(href='#')= randInt(1, 65)
+
+		.members_title Founders
+		.members_group
+			each people in peoples
+				if (people.status !== 'out' && ['coordinator'].includes(people.type))
+					.member_item(class=people.status)
+						.member_name= people.i18n.name.get(locale)
+						.member_role= __(people.type)
+
+		.members_title Team
+		.members_group
+			each people in peoples
+				if (people.status !== 'out' && ['designer', 'architect', 'curator'].includes(people.type))
+					.member_item(class=people.status)
+						.member_name= people.i18n.name.get(locale)
+						.member_role= __(people.type)
+
+		.members_title History
+		.members_group
+			each people in peoples
+				if (people.status == 'out' && ['designer', 'architect', 'curator', 'coordinator'].includes(people.type))
+					.member_item(class=people.status)
+						.member_name= people.i18n.name.get(locale)
+						.member_role= __(people.type)
