@@ -22,10 +22,10 @@ $(function() {
 	})
 	.on('mouseleave', function(e) {
 		$('.preview').removeClass('show').empty();
-	});
-
-	$(document).on('mousemove', '.image', function(e) {
-		var $this = $(this).children('img');
+	})
+	.children('img')
+	.on('mousemove', function(e) {
+		var $this = $(this);
 		var $preview = $('.preview');
 
 		var percentY = (e.pageY - $this.offset().top) / $this.height() * 1.1 - 0.30;
