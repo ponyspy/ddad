@@ -66,6 +66,8 @@ body
 		font-size 14pt
 		line-height 20pt
 		margin-right 15px
+		&.back .num
+			border-bottom 2px solid black!important
 		&.special
 			pointer-events none
 			a
@@ -77,10 +79,12 @@ body
 				border-bottom 2px solid black
 			.num
 				font-size 12pt
-				padding-right 15px
+				margin-right 15px
 			.title
 				font-family 'HelveticaNeue Bold'
 		&.hover
 			a
+				.num
+					border-color lightgrey!important
 				pointer-events none
 				color lightgrey

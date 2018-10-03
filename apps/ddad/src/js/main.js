@@ -3,6 +3,10 @@ $(function() {
 		var poster = $(this).attr('data-poster');
 
 		if (poster) (new Image()).src = poster;
+
+		if (localStorage.getItem($(this).attr('data-id'))) {
+			$(this).addClass('back');
+		}
 	});
 
 	$('.d_item')
@@ -20,6 +24,11 @@ $(function() {
 		});
 
 	$('.p_item').not('.hover')
+		.on('click', function(e) {
+			var id = $(this).attr('data-id')
+
+			localStorage.setItem(id, 'w_id');
+		})
 		.on('mouseenter', function(e) {
 			if ($(this).hasClass('hover')) return false;
 
