@@ -46,15 +46,16 @@ body
 			font-size 12pt
 			line-height 14pt
 			background-color black
-		&.active
 		&.hover
 			.title
 				color lightgrey
 				background-color lightgrey
 			a
 				color lightgrey
-		&:hover .title
-			background-color transparent
+		&.select
+		&:hover
+			.title
+				background-color transparent
 
 .projects
 	text-align left
@@ -79,7 +80,6 @@ body
 				padding-right 15px
 			.title
 				font-family 'HelveticaNeue Bold'
-		&.active
 		&.hover
 			a
 				pointer-events none
