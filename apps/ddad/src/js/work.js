@@ -25,7 +25,7 @@ $(function() {
 	});
 
 	$(document).on('mousemove', '.image', function(e) {
-		var $this = $(this);
+		var $this = $(this).children('img');
 		var $preview = $('.preview');
 
 		var percentY = (e.pageY - $this.offset().top) / $this.height() * 1.1 - 0.30;
