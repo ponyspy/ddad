@@ -1,7 +1,7 @@
 $(function() {
 	$(document)
 		.on('mouseup touchend', function(e) {
-			if ($(e.target).closest('.p_item:not(.hover)').length) return;
+			if ($(e.target).closest('.d_item.select, .p_item:not(.hover)').length) return;
 
 			if ($('.d_item').hasClass('select')) {
 				$('.p_item, .d_item').removeClass('hover select');
