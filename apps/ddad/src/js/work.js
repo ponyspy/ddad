@@ -13,9 +13,9 @@ $(function() {
 		});
 	});
 
-	$('.image')
+	$('.image').children('img')
 	.on('mouseenter', function(e) {
-		var path = $(this).find('img').attr('src');
+		var path = $(this).attr('src');
 
 		$('.preview').addClass('show');
 		$('<img/>', { src: path }).appendTo('.preview');
@@ -23,7 +23,6 @@ $(function() {
 	.on('mouseleave', function(e) {
 		$('.preview').removeClass('show').empty();
 	})
-	.children('img')
 	.on('mousemove', function(e) {
 		var $this = $(this);
 		var $preview = $('.preview');
