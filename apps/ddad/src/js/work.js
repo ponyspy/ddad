@@ -15,7 +15,7 @@ $(function() {
 
 	$('.image').children('img')
 	.on('mouseenter', function(e) {
-		var path = $(this).attr('src');
+		var path = $(this).data('original');
 
 		$('.preview').addClass('show');
 		$('<img/>', { src: path }).appendTo('.preview');

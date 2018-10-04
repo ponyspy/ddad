@@ -45,7 +45,7 @@ block content
 				else
 					.image(class='size_' + image.size)
 						- var description = image.description.filter(function(lang) { return lang.lg == locale })
-						img(src=image.thumb)
+						img(src=image.thumb, data-original=image.original)
 						if description.length && description[0].value != ''
 							.image_description= description[0].value
 
