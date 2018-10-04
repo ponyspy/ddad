@@ -57,7 +57,7 @@ module.exports = function(Model, Params) {
 			work.sym = post.sym ? post.sym : undefined;
 			work.case = post.case ? post.case : undefined;
 
-			work.geo = post.geo.lat && post.geo.lat.length > 0 && post.geo.lat.map(function(item, i) {
+			work.geo = post.geo.name.ru && post.geo.name.ru.length > 0 && post.geo.name.ru.map(function(item, i) {
 				var name = [];
 
 				name.push({ 'lg': 'ru', 'value': post.geo.name.ru[i] })
@@ -67,7 +67,7 @@ module.exports = function(Model, Params) {
 				}
 
 				return {
-					'lat': item,
+					'lat': post.geo.lat[i],
 					'long': post.geo.long[i],
 					'name': name
 				}
