@@ -8,12 +8,12 @@ html
 			.menu_block
 				if about
 					.menu_about
-						a(href='/about/bio', class=(about == 'bio' ? 'active' : '')) bio
-						a(href='/about/contacts', class=(about == 'contacts' ? 'active' : '')) contacts
-						a(href='/about/team', class=(about == 'team' ? 'active' : '')) team
-						a(href='/about/geo', class=(about == 'geo' ? 'active' : '')) geo
-						a(href='/about/partners', class=(about == 'partners' ? 'active' : '')) partners
-						a(href='/about/press', class=(about == 'press' ? 'active' : '')) press
+						.a_item: a(href='/about/bio', class=(about == 'bio' ? 'active' : '')) bio
+						.a_item: a(href='/about/contacts', class=(about == 'contacts' ? 'active' : '')) contacts
+						.a_item: a(href='/about/team', class=(about == 'team' ? 'active' : '')) team
+						.a_item: a(href='/about/geo', class=(about == 'geo' ? 'active' : '')) geo
+						.a_item: a(href='/about/partners', class=(about == 'partners' ? 'active' : '')) partners
+						.a_item: a(href='/about/press', class=(about == 'press' ? 'active' : '')) press
 				.menu_items
 					if (session && session.user_id)
 						a(href='/admin') STARGAZER
