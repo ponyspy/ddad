@@ -14,6 +14,11 @@ $(function() {
 	});
 
 	$('.image').children('img')
+	.each(function() {
+		var img_original = $(this).data('original');
+
+		if (img_original) (new Image()).src = img_original;
+	})
 	.on('mouseenter', function(e) {
 		var path = $(this).data('original');
 
