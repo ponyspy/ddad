@@ -87,14 +87,14 @@ block content
 						.item_value
 							each item in work.geo
 								- var name = item.name.filter(function(lang) { return lang.lg == locale })
-								.Location_item= name.length ? name[0].value : ''
+								.location_item= name.length ? name[0].value : ''
 
 				if work.partners.length
 					.meta_item
 						.item_title Partners
 						.item_value
 							each partner in work.partners
-								a(href=partner.link, target='_blank')= partner.i18n.title.get(locale)
+								.partner_item: a(href=partner.link, target='_blank')= partner.i18n.title.get(locale)
 
 			.meta_column
 				if work.peoples.length

@@ -10,7 +10,7 @@ body
 
 .title_block
 	width 100%
-	position absolute
+	position fixed
 	padding 20px
 	padding-top 18px
 	padding-bottom 15px
@@ -27,6 +27,8 @@ body
 	font-family 'HelveticaNeue Roman'
 	font-size 12pt
 	line-height 14pt
+	&:hover
+		border-bottom 2px solid black
 
 .menu_block
 	display flex
@@ -40,6 +42,8 @@ body
 		color black
 		text-align right
 		margin-left 20px
+		&:hover
+			border-bottom 2px solid black
 	.menu_items
 		flex 2
 		// background-color grey
@@ -79,6 +83,8 @@ body
 	a
 		color black
 		text-decoration none
+		&:hover
+			border-bottom 2px solid black
 	.footer_left
 		float left
 	.footer_right

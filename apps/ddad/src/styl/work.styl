@@ -1,12 +1,6 @@
 @media screen and (max-width: 680px)
 	@import 'mobile/_work.styl'
 
-// .content_block
-// 	padding 20px
-// 	padding-top 60px
-
-.title_block
-	position fixed
 
 .column
 	width 50%
@@ -67,7 +61,8 @@
 			width 60%
 			margin-right -5px
 			display inline-block
-			.Location_item
+			.partner_item
+			.location_item
 				margin-bottom 10px
 				&:last-child
 					margin-bottom 0
@@ -79,12 +74,8 @@
 			a
 				color black
 				text-decoration none
-				&:after
-					content ','
-					margin-right 5px
-				&:last-child:after
-					content ''
-					margin-right 0
+				&:hover
+					border-bottom 2px solid black
 
 .work_description
 	font-family 'HelveticaNeue Roman'
