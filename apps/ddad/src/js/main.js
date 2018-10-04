@@ -1,4 +1,5 @@
 $(function() {
+
 	$(document)
 		.on('mouseup touchend', function(e) {
 			if ($(e.target).closest('.d_item.select, .p_item:not(.hover)').length) return;
@@ -10,17 +11,6 @@ $(function() {
 
 			e.stopPropagation();
 		});
-
-	$('.p_item').each(function() {
-		var $this = $(this);
-		var poster = $this.attr('data-poster');
-
-		if (poster) (new Image()).src = poster;
-
-		if (localStorage.getItem($this.attr('data-id'))) {
-			$this.addClass('back');
-		}
-	});
 
 	$('.d_item')
 		.on('click', function(e) {
@@ -39,9 +29,19 @@ $(function() {
 		});
 
 	$('.p_item')
+		.each(function() {
+			var $this = $(this);
+			var poster = $this.data('poster');
+
+			if (poster) (new Image()).src = poster;
+
+			if (localStorage.getItem($this.data('id'))) {
+				$this.addClass('back');
+			}
+		})
 		.on('click', function(e) {
 			var $this = $(this);
-			var id = $this.attr('data-id');
+			var id = $this.data('id');
 
 			$this.addClass('back');
 
@@ -52,11 +52,12 @@ $(function() {
 
 			if ($this.hasClass('hover')) return false;
 
-			var poster = $this.attr('data-poster');
+			var poster = $this.data('poster');
 
 			if (poster) $('.poster').css('background-image', 'url(' + poster + ')');
 		})
 		.on('mouseleave', function(e) {
 			$('.poster').removeAttr('style');
 		});
+
 });
