@@ -14,20 +14,20 @@ block outer
 block content
 	.directions
 		.d_item.manege
-			a(href='#') M
-			.title MANEGE
+			a(href='#')= __('М')
+			.title= __('Манеж')
 		.d_item.hystoric_patriotic
-			a(href='#') H&P
-			.title HYSTORIC & PATRIOTIC
+			a(href='#')= __('ИД')
+			.title= __('Историко-документальное')
 		.d_item.sidur
-			a(href='#') S
-			.title SIDUR
+			a(href='#')= __('С')
+			.title= __('Сидур')
 		.d_item.rik
-			a(href='#') RiK
-			.title RABOCHIY I KOLKHOZNITSA
+			a(href='#')= __('РиК')
+			.title= __('Рабочий и Колхозница')
 		.d_item.moscow_biennale
-			a(href='#') MB
-			.title MOSCOW BIENNALE
+			a(href='#')= __('МБ')
+			.title= __('Московская Биеннале')
 
 	.projects
 		each work in works

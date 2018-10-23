@@ -8,19 +8,19 @@ html
 			.menu_block
 				if about
 					.menu_about
-						.a_item: a(href='/about/bio', class=(about == 'bio' ? 'active' : '')) bio
-						.a_item: a(href='/about/contacts', class=(about == 'contacts' ? 'active' : '')) contacts
-						.a_item: a(href='/about/team', class=(about == 'team' ? 'active' : '')) team
-						.a_item: a(href='/about/geo', class=(about == 'geo' ? 'active' : '')) geo
-						.a_item: a(href='/about/partners', class=(about == 'partners' ? 'active' : '')) partners
-						.a_item: a(href='/about/press', class=(about == 'press' ? 'active' : '')) press
+						.a_item: a(href='/about/bio', class=(about == 'bio' ? 'active' : ''))= __('История')
+						.a_item: a(href='/about/contacts', class=(about == 'contacts' ? 'active' : ''))= __('Контакты')
+						.a_item: a(href='/about/team', class=(about == 'team' ? 'active' : ''))= __('Команда')
+						.a_item: a(href='/about/geo', class=(about == 'geo' ? 'active' : ''))= __('География')
+						.a_item: a(href='/about/partners', class=(about == 'partners' ? 'active' : ''))= __('Партнеры')
+						.a_item: a(href='/about/press', class=(about == 'press' ? 'active' : ''))= __('Пресса')
 				.menu_items
 					if (session && session.user_id)
 						a(href='/admin') STARGAZER
 						if edit_work
-							a(href='/admin/works/edit/' + edit_work, target='_blank') EDIT
-						a(href='/auth/logout') EXIT
-					a(href='/about') ABOUT
+							a(href='/admin/works/edit/' + edit_work, target='_blank')= __('Править')
+						a(href='/auth/logout')= __('Выход')
+					a(href='/about')= __('О нас')
 					if locale == 'ru'
 						a.lang.en(href='/lang/en') EN
 					else
