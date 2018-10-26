@@ -55,7 +55,7 @@ block content
 			span.title= work.i18n.title.get(locale)
 
 		.work_meta
-			.meta_column
+			.meta_column.left
 				if work.year
 					.meta_item
 						.item_title= __('Год')
@@ -96,7 +96,7 @@ block content
 							each partner in work.partners
 								.partner_item: a(href=partner.link, target='_blank')= partner.i18n.title.get(locale)
 
-			.meta_column
+			.meta_column.right
 				if work.peoples.length
 					.meta_item
 						.item_title= __('Команда')
