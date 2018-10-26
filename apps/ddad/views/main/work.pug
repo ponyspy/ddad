@@ -81,7 +81,7 @@ block content
 						.item_title= __('Заказчик')
 						.item_value= work.i18n.client.get(locale)
 
-				if work.geo.length
+				if work.geo.length && work.geo[0].name.filter(function(lang) { return lang.lg == locale }).length
 					.meta_item
 						.item_title= __('Локации')
 						.item_value
