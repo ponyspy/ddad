@@ -27,7 +27,7 @@
 	"Площадь": "Area",
 	"Статус": "Status",
 	"Заказчик": "Client",
-	"coordinator": "coordinator",
-	"architect": "architect",
+	"coordinator": "Coordinator",
+	"architect": "Architect",
 	"director": "Director"
 }
