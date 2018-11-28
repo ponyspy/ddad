@@ -21,10 +21,10 @@ html
 							a(href='/admin/works/edit/' + edit_work, target='_blank')= __('Править')
 						a(href='/auth/logout')= __('Выход')
 					a(href='/about')= __('О нас')
-					if locale == 'ru'
-						a.lang.en(href='/lang/en') EN
-					else
-						a.lang.ru(href='/lang/ru') RU
+					//- if locale == 'ru'
+					//- 	a.lang.en(href='/lang/en') EN
+					//- else
+					//- 	a.lang.ru(href='/lang/ru') RU
 
 		.outer_block
 			block outer
