@@ -26,5 +26,8 @@
 	"Программа": "Programm",
 	"Площадь": "Area",
 	"Статус": "Status",
-	"Заказчик": "Client"
+	"Заказчик": "Client",
+	"coordinator": "coordinator",
+	"architect": "architect",
+	"director": "Director"
 }
